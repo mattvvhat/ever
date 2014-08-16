@@ -1,0 +1,25 @@
+{
+  "name": "vvhat",
+  "version": "0.0.0",
+  "description": "you know",
+  "main": "app.js",
+  "dependencies": {
+    "grunt-bower-install": "^1.6.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-angular-templates": "^0.5.7",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-karma": "^0.8.3",
+    
+  },
+  "devDependencies": {
+
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Matt Derasoirs <matt@planwork.us>",
+  "license": "UNLICENSE"
+}
