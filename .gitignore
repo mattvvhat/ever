@@ -1,2 +1,4 @@
 *.log
 .git
+app/vendor
+node_modules

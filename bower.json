@@ -1,0 +1,19 @@
+{
+  "name": "vvhat",
+  "version": "0.0.0",
+  "description": "vv/e",
+  "dependencies": {
+    "three.js": "*"
+  },
+  "authors": [
+    "Matt Owen"
+  ],
+  "license": "UNLICENSE",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

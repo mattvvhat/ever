@@ -21,6 +21,20 @@ module.exports = function(grunt) {
       }
     },
 
+    wiredep: {
+      target: {
+        src: [
+          'app/*.html'
+        ],
+
+        // Optional:
+        // ---------
+        cwd: '',
+        dependencies: true,
+        devDependencies: false
+      }
+    },
+
     /**
      *  _   _      _ _  __      
      * | | | |__ _| (_)/ _|_  _ 
@@ -46,7 +60,6 @@ module.exports = function(grunt) {
 
     connect: {
       options: {
-        open: 'fick',
         port: 9000,
         livereload: true,
         hostname: 'localhost',
@@ -57,11 +70,11 @@ module.exports = function(grunt) {
          *  @param  {[type]} middlewares [description]
          *  @return {[type]}             [description]
          */
-        middleware: function (connect, options, middlewares) {
-          var server = require('./mock/server.js');
-          middlewares.push(server);
-          return middlewares;
-        }
+        // middleware: function (connect, options, middlewares) {
+        //   var server = require('./mock/server.js');
+        //   middlewares.push(server);
+        //   return middlewares;
+        // }
       },
       livereload: {
         options: {
@@ -183,6 +196,7 @@ module.exports = function(grunt) {
   );
 
   // Load Grunt Tasks
+  grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -190,11 +204,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-bower-install');
 
   // Custom
   grunt.registerTask('dev', [ 'connect', 'watch' ]);
   grunt.registerTask('test', [ 'jshint', 'karma' ]);
-  grunt.registerTask('build', [ 'ngtemplates', 'concat', 'uglify', 'bowerInstall' ]);
+  grunt.registerTask('build', [ 'ngtemplates', 'concat', 'uglify' ]);
   grunt.registerTask('default', [ 'test' ]);
 };
