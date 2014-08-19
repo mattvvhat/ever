@@ -1,0 +1,52 @@
+<html>
+<head>
+<script>
+window.addEventListener('load', function () {
+	setInterval(update, 16);
+});
+
+function update () {
+	var exam_time 	= +new Date('10/24/2014');
+	var now 		= + new Date();
+	var diff 		= exam_time - now;
+	var mod_time;
+
+	mod_time = diff/24;
+	var days = Math.floor(mod_time);
+
+	mod_time = diff/1000/60/60;
+	var hours = mod_time/3
+
+	var el = document.getElementById('countdown');
+	el.innerHTML = hours;
+	
+	// alert('vv/e');
+}
+
+</script>
+<style>
+#countdown {
+	font-family: 'Helvetica', 'Helvetica Neue', sans-serif;
+	letter-spacing: .25em;
+	color: rgb(200, 200, 200);
+	position: absolute;
+	top: 	50%;
+	left: 	0%;
+	text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+
+	font-size: 100px;
+	width: 	300px;
+	margin-left: 	0;
+	margin-top: -50px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="countdown">10:00pm</div>
+
+</body>
+</html>

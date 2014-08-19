@@ -1,0 +1,405 @@
+/**
+ * General styling for HTML elements
+ * * * ** * **   ** *** * 
+ * ** ******* * * * **** * * **
+ * * * * ** * * *** * *** ** 
+ */
+body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 17pt;
+  margin:   0;
+  padding:  0;
+}
+
+a, a:link, a:visited {
+  text-decoration: none;
+  font-weight: 600;
+  outline: none;
+}
+
+a:active, a:hover {
+  border-bottom:  solid 1px rgb(60, 60, 60);
+}
+
+u {
+}
+
+#top a {
+  color: rgb(120, 120, 120);
+  color: white;
+}
+
+#top a:hover, #top a:active {
+  color:          rgb(60, 60, 60);
+}
+
+/** MARGINS in SUBSECT **/
+
+.related-info .fa, .related-info a {
+  color: black;
+}
+.related-info a:hover {
+  border: 0px;
+  color: rgb(120, 0, 120);
+}
+
+h1, h2, h3, h4 {
+  margin-top:     0;
+}
+
+.subsec > h3,
+.subsec > .info,
+.subsec > div {
+  margin: 0 0 .750em 0;
+}
+
+.subsec > .about {
+  font-size: 80%;
+}
+
+
+#top {
+  width: 100%;
+  padding: 0;
+  padding-top: .3em;
+  padding-bottom: .8em;
+  margin-bottom: 5px;
+}
+
+#top > section {
+  width: 800px;
+  margin: 0 auto;
+  padding: 0px 1em;
+}
+
+#top > section > section {
+  padding: 2px 0;
+}
+
+#euler {
+  margin-top: 10px;
+}
+
+#subsec-name a:hover,
+#subsec-name a:active {
+  border-width: 0;
+}
+
+hr {
+  border-color: rgb(200, 200, 200);
+  border-color: rgba(100, 100, 100, .2);
+}
+
+blockquote, p {
+  text-align: justify;
+}
+
+/**
+ * Classes for use with this template
+ * ** * * * ** * * * ************ ** *
+ * * * * **** * **        ** ** **********
+ * * ******** * * ****     * * ****** *
+ */
+
+.sec {
+  font-size: 100%;
+}
+
+.subsec {
+  font-size: 80%;
+}
+
+.subsec .role,
+.subsec .time,
+.subsec .location {
+  color: rgb(90, 90, 90);
+  letter-spacing: .04em;
+  font-size: 80%;
+}
+
+.subsec .role {
+  color: rgb(30, 30, 30);
+  padding-bottom: 5px;
+  font-size: 100%;
+  letter-spacing: .06em;
+}
+
+.related-info {
+  margin-top: 10px;
+  font-size: 80%;
+}
+
+.pull-quote {
+  display: block;
+  float: left;
+  width: 275px;
+  font-size: 105%;
+  font-weight: 200;
+  color: black;
+  vertical-align: top;
+  padding: 0 0;
+  margin: 0 20px 10px 0;
+}
+
+.bullets {
+  color: rgb(80, 80, 80);
+}
+
+.hidden {
+  display: none;
+}
+
+.related-info {
+  color: rgb(80, 80, 80);
+  margin: 0;
+  padding: 0;
+}
+
+table.related-info td {
+  padding-bottom: 5px;
+}
+
+table.related-info td:last-child {
+  padding-bottom: 5px;
+}
+
+@media all and (max-width: 800px) {
+  #content {
+    min-width: 300px;
+  }
+}
+
+#banner {
+  height: 0px;
+  margin-bottom: 20px;
+}
+
+#subsec-name {
+  font-size: 200%;
+}
+
+/**
+ * Background DIV
+ * This is used to place a large image behind the whatever.
+ * ** * * ***** * ** * **    ** *     ** * ********** * ***
+ * ** ***** ** ***** *    ******* * * ******* *** *   *
+ * ****** *     *         * *****    *   ***  *******    ***
+ */
+
+.bg {
+  z-index: -100;
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+  background-color: white;
+}
+.bg > img,
+.bg > video,
+.bg > canvas {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width:  50%;
+  min-height: 50%;
+  max-width:  100%
+  max-height: 100%
+}
+.bg > canvas {
+  z-index: -97;
+}
+.bg > video {
+  z-index: -98;
+}
+.bg > img {
+  z-index: -99;
+}
+
+/**
+ * Return to Top of Page Icon
+ * Styling for the button on the lower-right that returns the viewer to the top
+ * of the page.
+ * * * **** * * **  ** * * *******  ** * ****** * * *   ** *
+ * ** ******* * * ****     ** ** ******** ** *    * * ** * ***
+ * ** * ***     ** ** *******    ** * **    *  **  *** ****
+ */
+
+#go-up {
+  font-size:  50px;
+  position:   fixed;
+  bottom:     7px;
+  right:      25px;
+  -webkit-touch-callout:  none;
+  -webkit-user-select:    none;
+  -khtml-user-select:     none;
+  -moz-user-select:       none;
+  -ms-user-select:        none;
+  user-select:            none;
+}
+#go-up:hover {
+}
+#go-up a {
+  color: white;
+  display: block;
+  border-radius: 6px;
+  background-color: rgba(33, 33, 33, .5);
+  padding: 0 .25em;
+  text-align: center;
+  line-height: 50px;
+}
+#go-up a:active, #go-up a:hover {
+  color: white;
+  border-width: 0;
+  background-color: rgb(33, 33, 33);
+}
+@media all and (max-width: 800px) {
+  #go-up {
+    font-size: 35px;
+  }
+}
+
+
+/**
+ * Contact Form
+ * Styling for #contact-form
+ * * ** *  ** ***** * *
+ * *** *  *** ** ** *** ***
+ * *** *** * * * * *** ***
+ */
+
+#contact-form input,
+#contact-form textarea {
+  font-family: monospace;
+  color: rgb(80, 80, 80);
+  font-size: 10pt;
+  margin-left: 1em;
+}
+
+#contact-form input {
+  min-width: 250px;
+  max-width: 100%;
+  *width: 250px;
+}
+
+#contact-form input[type=submit] {
+  width: auto;
+  max-width: 100%;
+}
+
+#contact-form textarea {
+  width: 400px;
+  max-width: 100%;
+}
+
+/**
+ * Wrapper for All Content
+ * Styles for the wrapper element
+ * * **** * *  ***   * * * * *** * *  * *** * * ** * * ** *   * * * * *** * **
+ * ********** * * *    * * * * *** * * * ***   * * ** ** ** *  *** * * ** * ****
+ * ********* * * * **** *   * ** *  *   ** ** *** **   ***** ** *** ***** *  * *
+ */
+
+#content,
+#final-thoughts {
+  width: 100%;
+}
+
+#final-thoughts {
+  text-align: justify;
+}
+
+#content > div,
+#content > section,
+#content > article,
+#final-thoughts > div,
+#final-thoughts > section,
+#final-thoughts > article {
+  width: 800px;
+  padding: 10px 0px;
+  margin: 0 auto;
+}
+
+@media all and (max-width: 800px) {
+  #top > section,
+  #content > div,
+  #content > section,
+  #content > article,
+  #final-thoughts > div,
+  #final-thoughts > section,
+  #final-thoughts > article {
+    width: auto;
+    padding: 10px 20px;
+  }
+}
+
+#final-thoughts {
+  margin-bottom:  0;
+  padding-bottom: 0;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 0 0 1px 0;
+}
+
+/**
+ * Final Thoughts Section
+ * Styling for #final-thoughts. This primarily handles the color-change and
+ * spacing changes needed for the final section.
+ * * * *********** * **** *    * ** ** 
+ * *** * * *** * * ** ****    ** ** 
+ * * * * ***      **  * ******** *****
+ */
+
+#final-thoughts {
+  color: rgb(220, 220, 220);
+  background-color: rgb(33, 33, 33);
+  background-color: rgba(0, 0, 0, .8);
+}
+
+#final-thoughts .subsec {
+  color: rgb(150, 150, 150);
+}
+
+.subsec {
+  padding:  0;
+  margin:   0;
+}
+
+/**
+ * Mid-sized resizing
+ * Styling fixes for between 600px and 800px.
+ * NOTE: This is a rare style option.
+ * ** *** ***      *** **     ** ***     ** ** ****** ***
+ * ** ** ** ** *** * ** ***    ** * **** * *   ** * ******
+ * ** * ******* * ******** * ** ** ***** * * ***   *****
+ */
+@media all and (min-width: 601px and max-width: 799px) {
+}
+
+/**
+ * Phone Portrait Styles
+ * Styling fixes for mobile phones (READ: iPhones) in portrait mode.
+ * NOTE: This could be ~320px *but* I don't care too much about the difference.
+ * What matters to me is that it's thin.
+ * ** * ******** * **         ** * ***     * *********
+ * ***** ** * ******* * *  * * * ** *  * * * *  * *   * 
+ *  ** * * * ***** * * * *** * ********** ** ****  **
+ */
+@media all and (max-width: 800px) {
+  body {
+    font-size: 12pt;
+  }
+  .pw-list {
+    text-align: justify;
+  }
+}
+
+/**
+ * Phone Landscape Styles
+ * Styling fixes for mobile phones (READ: iPhones) in landscape mode
+ */
+@media all and (min-width: 401px and max-width: 800px) {
+}
