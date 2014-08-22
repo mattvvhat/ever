@@ -2,6 +2,12 @@
 
 Back-to-front, server-to-client template
 
+# Install
+
+1. `npm install`
+2. `bower install`
+3. `grunt dev`
+
 # UNLICENSE
 
 This is free and unencumbered software released into the public domain.
