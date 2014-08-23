@@ -128,41 +128,110 @@
     <script>window.jQuery || document.write('<script src="public/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
     <!-- PLUGINS -->
     <script src="public/js/custom/plugins.js"></script>
-	
+    <!-- ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-45577960-1', 'razorbla.de');
+      ga('send', 'pageview');
+    </script>
+	<script>
+      $(window).scroll(function () {
+        // Scroll-top
+        var _st = $(window).scrollTop();
+        if (_st > 30) {
+          if (!$("#go-up").hasClass('faded-in')) {
+            $('#go-up').hide().fadeOut(0).removeClass('hidden').addClass('faded-in').fadeIn(300);
+          }
+        }
+        else {
+          $('#go-up').stop(true, false).removeClass('faded-in').fadeOut(300);
+        }
+      });
+      /**
+       * Scroll to an HTML Element
+       * Scroll to an HTML element at a set rate of pixels per millisecond.
+       * @param {string,object} obj a string or object to which the page will scroll
+       * @param {numeric} rate a numeric specifying the scroll speed in pixels per
+       * second. Defaults to [10]
+       */
+      function pwScrollTo (obj, rate) {
+        rate = typeof rate === 'number' ? rate : 40;
+        rate = rate > 0 ? rate : 40;
+
+        if (typeof obj === "string") {
+          obj = document.getElementById(obj);
+        }
+
+        var currentPosition = $(window).scrollTop(), targetPosition = $(obj).offset().top;
+
+        // Time in milliseconds
+        var t = Math.abs(currentPosition - targetPosition)/rate;
+
+        $("html, body").animate({ scrollTop : targetPosition }, t);
+        $("html, body").scroll();
+        $(window).scroll();
+        return false;
+      }
+
+      function pwPopUp (ev, url) {
+        $.event.fix(ev);
+        console.log(ev);
+        console.log(url);
+
+        var opt_string = '';
+        opt_string += 'height=500 ';
+        opt_string += 'width=300 ';
+        opt_string += 'left=' + (ev.screenX - 0) + ' ';
+        opt_string += 'top=' + (ev.screenY - 0) + ' ';
+        opt_string += 'menubar=no ';
+        opt_string += 'location=no ';
+        opt_string += 'status=no ';
+
+        window.open(url, '_blank', opt_string);
+
+        ev.preventDefault();
+        return false;
+      }
+    </script>
     <script>
       requirejs.config({
         paths : {
           three     : 'vendor/three.js/three.min',
+          OBJLoader : 'public/js/vendor/OBJLoader',
           App       : 'public/js/custom/App',
-          GlslApp   : 'js/GlslApp'
-        },
-        shim : {
-          GlslApp : {
-            deps : [ 'App', 'three' ]
-          }
+          Couch     : 'public/js/Couch',
+          SvvimApp  : 'public/js/custom/SvvimApp',
+          TurntApp  : 'public/js/custom/TurntApp'
         }
       });
 
-      require([ 'GlslApp' ], function () {
+      require([ 'three', 'App' ], function () {
+        require([ 'Couch' ], function () {
+          require([ 'OBJLoader', 'TurntApp' ], function () {
 
-        var s = new GlslApp('div-bg');
+            var s = new TurntApp('div-bg');
 
-        setTimeout(function () {
-          s.loop();
-          s.container.appendChild(s.renderer.domElement);
-        }, 1000);
+            setTimeout(function () {
+              s.loop();
+              s.container.appendChild(s.renderer.domElement);
+            }, 1000);
 
-        $(window).scroll(function (ev) {
-          var y = $(window).scrollTop() / ($(document).height() - $(window).height());
-          s.set('y', y);
-        });
+            $(window).scroll(function (ev) {
+              var y = $(window).scrollTop() / ($(document).height() - $(window).height());
+              s.set('y', y);
+            });
 
-        $(window).keypress(function (ev) {
-          switch (ev.which) {
-          case 112:
-            s.snapshot();
-            break;
-          }
+            $(window).keypress(function (ev) {
+              switch (ev.which) {
+              case 112:
+                s.snapshot();
+                break;
+              }
+            });
+          });
         });
       });
     </script>
