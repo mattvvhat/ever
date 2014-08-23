@@ -21,7 +21,6 @@ GlslApp.prototype.init = function () {
   self.app.time       = 0;
 
 
-  self.params   = { y : 0, speed : 10.0 };
   self.scene    = new THREE.Scene();
   self.renderer = new THREE.WebGLRenderer({ antialias : true });
 
@@ -34,12 +33,12 @@ GlslApp.prototype.init = function () {
 
   self.lights = {
     ambient : new THREE.AmbientLight( 0xCCCCCC ),
-    point   : new THREE.PointLight(0xFFFFFF, 1, 100),
+    point   : new THREE.PointLight(0xFF0000, 1, 100),
     diffuse : new THREE.DirectionalLight(0xCCCCCC)
   };
 
   self.lights.point.position.set(6, 0, 0);
-  self.lights.point.lookAt(0, 0, 0);
+  // self.lights.point.lookAt(0, 0, 0);
   self.lights.diffuse.position.set( 1, 0, 0 );
 
   self.camera.position.x = 0;
@@ -49,8 +48,8 @@ GlslApp.prototype.init = function () {
   var cube = new THREE.BoxGeometry(3, 1, 1);
   var mat  = new THREE.MeshPhongMaterial({
     ambient   : 0xFFFFFF,
-    color     : 0xdddddd,
-    specular  : 0x009900,
+    color     : 0xFFFFFF,
+    specular  : 0xFFFFFF,
     shininess : 30,
     shading   : THREE.FlatShading
   });
@@ -84,6 +83,9 @@ GlslApp.prototype.update = function () {
   self.camera.lookAt(new THREE.Vector3(0, 0, 0));
   self.mesh.rotation.x += +0.01;
   self.mesh.rotation.y += -0.02;
+
+  var t = +new Date()/1000;  
+  self.lights.point.position.set(10*Math.cos(t), 10*Math.sin(t), 0);
 };
 
 // Draw cube to scene
