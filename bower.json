@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "vv/e",
   "dependencies": {
-    "three.js": "*"
+    "three.js": "*",
+    "GlslApp.js": "./dist/GlslApp.js"
   },
   "authors": [
     "Matt Owen"

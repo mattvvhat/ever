@@ -26,7 +26,6 @@ module.exports = function(grunt) {
         src: [
           'app/*.html'
         ],
-
         // Optional:
         // ---------
         cwd: '',
@@ -212,6 +211,6 @@ module.exports = function(grunt) {
   // Custom
   grunt.registerTask('dev', [ 'connect', 'watch' ]);
   grunt.registerTask('test', [ 'jshint', 'karma' ]);
-  grunt.registerTask('build', [ 'ngtemplates', 'concat', 'uglify' ]);
+  grunt.registerTask('build', [ 'ngtemplates', 'concat', 'uglify', 'wiredep' ]);
   grunt.registerTask('default', [ 'test' ]);
 };

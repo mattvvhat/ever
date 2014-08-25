@@ -1,4 +1,4 @@
-GlslApp.prototype.loop = App.prototype.loop;
+GlslApp.prototype = new App();
 
 function GlslApp (el) {
   el = el || '';
