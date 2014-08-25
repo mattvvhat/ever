@@ -44,9 +44,9 @@ module.exports = function(grunt) {
      *
      */
     uglify: {
-      Stacked: {
-        src: 'dist/Stacked.js',
-        dest: 'dist/Stacked.min.js'
+      any: {
+        src: 'dist/*.js',
+        dest: 'dist/xxx.js'
       }
     },
 
@@ -128,13 +128,17 @@ module.exports = function(grunt) {
       options: {
         separator: ';',
       },
-      dist: {
-        src: [ 'feature/app.js', 'feature/**/*.js' ],
-        dest: 'dist/Stacked.js'
+      App: {
+        src: [ 'feature/App.js' ],
+        dest: 'dist/App.js'
       },
-      feature: {
-        src: [ 'feature/app.js', 'feature/**/*.js' ],
-        dest: 'app/feature/Stacked.js'
+      GlslApp: {
+        src: [ 'feature/GlslApp.js' ],
+        dest: 'dist/GlslApp.js'
+      },
+      Full: {
+        src: [ 'feature/App.js', 'feature/GlslApp.js' ],
+        dest: 'dist/Full.js'
       }
     },
 
