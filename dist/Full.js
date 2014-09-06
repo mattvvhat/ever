@@ -1,3 +1,5 @@
+/* jshint unused: false */
+
 /**
  * App.js
  * A class that automatically handles looping, and creates default functions
@@ -5,8 +7,8 @@
  * overwritten, the should be used as-is.
  */
 function App () {
+  'use strict';
 
-  // Private stock
   var _running = true;
   var _error_callback = function () {};
   var self = this;
@@ -50,7 +52,7 @@ function App () {
 
     self.update();
     self.draw();
-  };
+  }
 
   /**
    * Stop the Loop Cycle
@@ -72,16 +74,27 @@ function App () {
     }
   }
 }
-;GlslApp.prototype = new App();
+;/* global THREE, App */
 
+GlslApp.prototype = new App();
+
+/**
+ * [GlslApp description]
+ * @param {[type]} el [description]
+ */
 function GlslApp (el) {
+  'use strict';
   el = el || '';
   this.container = typeof el === 'string' ? document.getElementById(el) : el;
   App.call(this);
 }
 
-// Init Obj App
+/**
+ * [init description]
+ * @return {[type]} [description]
+ */
 GlslApp.prototype.init = function () {
+  'use strict';
   var self = this;
 
   self.ambientColor = [ 0xCF, 0xCF, 0xCF ];
@@ -93,7 +106,6 @@ GlslApp.prototype.init = function () {
   self.app.far        = 10000;
   self.app.iterations = 0;
   self.app.time       = 0;
-
 
   self.scene    = new THREE.Scene();
   self.renderer = new THREE.WebGLRenderer({ antialias : true });
@@ -139,19 +151,23 @@ GlslApp.prototype.init = function () {
 
   self.renderer.setClearColor(0x00FFFF, 1);
 
-  this.resize = function (width, height) {
+  this.resize = function () {
     self.renderer.setSize(window.innerWidth, window.innerHeight);
   };
 
   this.resize();
 
-  window.addEventListener('resize', function (ev) {
+  window.addEventListener('resize', function () {
     self.resize();
   });
 };
 
-// Update Obj App
+/**
+ * [update description]
+ * @return {[type]} [description]
+ */
 GlslApp.prototype.update = function () {
+  'use strict';
   var self = this;
   self.camera.position = self.camera.position;
   self.camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -162,18 +178,30 @@ GlslApp.prototype.update = function () {
   self.lights.point.position.set(10*Math.cos(t), 10*Math.sin(t), 0);
 };
 
-// Draw cube to scene
+/**
+ * [draw description]
+ * @return {[type]} [description]
+ */
 GlslApp.prototype.draw = function () {
+  'use strict';
   this.renderer.render(this.scene, this.camera);
 };
 
-//
+/**
+ * [set description]
+ * @param {[type]} what [description]
+ * @param {[type]} val  [description]
+ */
 GlslApp.prototype.set = function (what, val) {
+  'use strict';
   if (what in this.params) {
     this.params[what] = val;
   }
 };
 
+/**
+ * [shift description]
+ * @return {[type]} [description]
+ */
 GlslApp.prototype.shift = function () {
-
 };

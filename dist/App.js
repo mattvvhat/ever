@@ -1,3 +1,5 @@
+/* jshint unused: false */
+
 /**
  * App.js
  * A class that automatically handles looping, and creates default functions
@@ -5,8 +7,8 @@
  * overwritten, the should be used as-is.
  */
 function App () {
+  'use strict';
 
-  // Private stock
   var _running = true;
   var _error_callback = function () {};
   var self = this;
@@ -50,7 +52,7 @@ function App () {
 
     self.update();
     self.draw();
-  };
+  }
 
   /**
    * Stop the Loop Cycle

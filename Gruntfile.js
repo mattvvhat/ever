@@ -92,28 +92,28 @@ module.exports = function(grunt) {
      *      
      */
     
-    ngtemplates: {
-      options: {
-        module: 'Stacked'
-      },
-      debug: {
-        options: {
-          htmlmin: {
-            collapseBooleanAttributes     : false,
-            collapseWhitespace            : false,
-            removeAttributeQuotes         : false,
-            removeComments                : false,
-            removeEmptyAttributes         : false,
-            removeRedundantAttributes     : false,
-            removeScriptTypeAttributes    : false,
-            removeStyleLinkTypeAttributes : false
-          }
-        },
-        cwd: 'feature',
-        src: 'views/**/*.html',
-        dest: 'feature/views/templates.js'
-      }
-    },
+    // ngtemplates: {
+    //   options: {
+    //     module: 'Stacked'
+    //   },
+    //   debug: {
+    //     options: {
+    //       htmlmin: {
+    //         collapseBooleanAttributes     : false,
+    //         collapseWhitespace            : false,
+    //         removeAttributeQuotes         : false,
+    //         removeComments                : false,
+    //         removeEmptyAttributes         : false,
+    //         removeRedundantAttributes     : false,
+    //         removeScriptTypeAttributes    : false,
+    //         removeStyleLinkTypeAttributes : false
+    //       }
+    //     },
+    //     cwd: 'feature',
+    //     src: 'views/**/*.html',
+    //     dest: 'feature/views/templates.js'
+    //   }
+    // },
 
     /**
      *   ___                  _   
