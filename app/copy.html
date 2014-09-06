@@ -77,18 +77,12 @@
       <a href="#content" onclick="pwScrollTo('top'); return false;"><i class="fa fa-angle-double-up"></i></a>
     </div>
 
-    <article>
-      <div id="prev">CILCKCLICKC</div>
-      <div id="next">&gt;</div>
-    </article>
-
     <!-- GET JQUERY -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="public/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
     <!-- PLUGINS -->
     <script src="public/js/custom/plugins.js"></script>
-	
-    <!-- ??? -->
+  
     <script>
       requirejs.config({
         paths : {
@@ -99,63 +93,13 @@
           // XxxApp  : 'js/GlslApp',
         },
         shim : {
-          GlslApp : { deps : [ 'App', 'three' ] }
-          // ObjApp  : { deps : [ 'App', 'three' ] },
-          // XxxApp  : { deps : [ 'App', 'three' ] }
+          GlslApp : { deps : [ 'App', 'three' ] },
+          ObjApp  : { deps : [ 'App', 'three' ] },
+          XxxApp  : { deps : [ 'App', 'three' ] }
         }
       });
 
       require([ 'GlslApp' ], function () {
-
-        /**
-         * [i description]
-         * @type {Number}
-         */
-        var i = 0;
-
-        /**
-         * [sections description]
-         * @type {Array}
-         */
-        var sections = [ GlslApp, GlslApp, GlslApp, 10, 10, 77 ];
-
-        /**
-         * [mod description]
-         * @param  {[type]} n [description]
-         * @param  {[type]} d [description]
-         * @return {[type]}   [description]
-         */
-        function mod (n, d) {
-          if (n < 0)
-            n = d - Math.abs(n%d);
-          return n % d;
-        }
-
-        /**
-         * [prev description]
-         * @return {[type]} [description]
-         */
-        function prev () {
-          i = mod(i-1, sections.length);
-          play(i, sections[i]);
-        }
-
-        /**
-         * [next description]
-         * @return {Function} [description]
-         */
-        function next () {
-          i = mod(i+1, sections.length);
-          play(i, sections[i]);
-        }
-
-        /**
-         * [play description]
-         * @return {[type]} [description]
-         */
-        function play (k, section) {
-          console.log(k, k);
-        }
 
         var s = new GlslApp('div-bg');
 
@@ -163,9 +107,6 @@
           s.loop();
           s.container.appendChild(s.renderer.domElement);
         }, 1000);
-
-        $('#prev').click(prev);
-        $('#next').click(next);
 
         // $(window).scroll(function (ev) {
         //   var y = $(window).scrollTop() / ($(document).height() - $(window).height());
